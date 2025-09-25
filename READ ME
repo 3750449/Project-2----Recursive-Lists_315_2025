@@ -1,0 +1,132 @@
+
+## Student Information
+
+Desmond Farley-Williams
+ID: 008508702
+https://github //fix
+
+---
+
+## Collaboration & Sources
+
+- C++ Reference (cppreference.com) consulted for syntax and documentation of Link List traversal
+---
+
+## Implementation Details
+
+This project implements recursive list operations using the custom recursive list in `reclists.hpp/cpp
+
+### Functions Implemented
+- `is_lat` – returns true if a list contains only atoms.
+- `member` – checks if an atom is present in a list.
+- `last` – returns the last element of a non-empty list.
+- `list_pair` – combines two lists of atoms into pairs.
+- `firsts` – returns a list of the first elements of each sublist.
+- `flat` – flattens nested lists into one level.
+- `two_the_same` – returns true if two lists share any atom.
+- `equal` – structural equality check between two recursive lists.
+- `total_reverse` – reverses lists and sublists recursively.
+- `shape` – returns only the parentheses structure of a list.
+- `intersection` – returns common atoms from two lists.
+- `list_union` – returns the union of two atom lists (without duplicates).
+- `substitute` – replaces all occurrences of one atom with another.
+- `remove` – removes all occurrences of an atom from a list.
+- `subset` – returns true if every element of list `p` is contained in list `q`.
+
+All functions are implemented recursively
+with no use of loops
+only the allowed ADT primitives (`car`, `cdr`, `cons`, `is_null`, `is_atom`, `eq`).
+
+---
+
+## Testing & Status
+### Tested Cases
+- **is_lat:** `(a b c)` → true; `(a (b) c)` → false
+- **member:** `member(a, (a b c))` → true; `member(d, (a b c))` → false
+- **last:** `(a b c)` → `c`
+- **list_pair:** `(a b c)` + `(d e f)` → `((a d) (b e) (c f))`
+- **firsts:** `((a b c) (d e f) (g h))` → `(a d g)`
+- **flat:** `(a (b) (c d))` → `(a b c d)`
+- **two_the_same:** `(a b)` and `(c a)` → true
+- **equal:** `(a (b c))` equals `(a (b c))`, but not `(a (c b))`
+- **total_reverse:** `((a) b (c d))` → `((d c) b (a))`
+- **shape:** `(a (b (c)))` → `(() (() ()))`
+- **intersection:** `(a b c)` ∩ `(c d a)` → `(a c)`
+- **list_union:** `(a b)` ∪ `(b c)` → `(a b c)`
+- **substitute:** substitute `a` with `x` in `(a b a c)` → `(x b x c)`
+- **remove:** remove `a` from `(a b a c)` → `(b c)`
+- **subset:** `(a b)` ⊆ `(a b c d)` → true; `(a d)` ⊆ `(a b c)` → false
+
+simplified checks:
+
+(a b c)
+(a (b) c)
+
+(a (a b c))
+(d (a b c))
+
+(a b c)
+c
+
+(a b c)
+(d e f)
+`((a d) (b e) (c f))`
+
+((a b c) (d e f) (g h))
+`(a d g)`
+
+(a (b) (c d))
+`(a b c d)`
+
+(a b)
+(c a)
+
+(a (b c))
+(a (b c))
+but not
+(a (c b))
+
+((a) b (c d))
+((d c) b (a))
+
+(a (b (c)))
+(() (() ()))`
+
+(a b c)
+(c d a)
+`(a c)`
+
+(a b)
+(b c)
+`(a b c)`
+
+a
+x
+(a b a c)
+`(x b x c)`
+
+a
+(a b a c)
+`(b c)`
+
+(a b)
+(a b c d)
+
+(a d)
+(a b c)
+
+
+### Status
+
+- All required functions are complete.
+- No known runtime errors.
+
+---
+
+## How to Compile & Run
+
+mkdir build && cd build
+cmake ..
+make
+./reclistsStudentVersion
+
