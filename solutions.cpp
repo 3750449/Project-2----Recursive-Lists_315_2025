@@ -228,7 +228,7 @@ list remove(list p, list q) {
 }
 
 // helper for subset
-static bool containsEqual(list p, list q) {
+bool containsEqual(list p, list q) {
 
     if (is_null(q))
         return false;
